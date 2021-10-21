@@ -2,6 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   color: #878787;
   font-size: 24px;
@@ -38,4 +42,28 @@ li {
 
 .overview {
   margin-bottom: 20px;
+}
+
+.weather-temperature img {
+  margin-right: 5px;
+  height: 64px;
+  width: 64px;
+}
+
+.weather-temperature strong {
+  color: black;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.weather-temperature .units {
+  position: relative;
+  top: -34px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.float-left {
+  float: left;
 }

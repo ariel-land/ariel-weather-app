@@ -14,7 +14,7 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container-md">
+    <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
@@ -26,13 +26,15 @@
           </div>
           <div class="row">
             <div class="col-6">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-                alt="cloudy"
-              />
-              15°C | °F
+              <div class="clearfix waether-temperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
+                  alt="cloudy"
+                  class="float-left"
+                />
+                <div class="float-left current-temp">15°C | °F</div>
+              </div>
             </div>
-
             <div class="col-6">
               <ul>
                 <li>Percipitation: 0%</li>
@@ -41,14 +43,14 @@
               </ul>
             </div>
           </div>
-          <small>
-            <a
-              href="https://github.com/ariel-land/ariel-weather-app"
-              target="”_blank”"
-              >Open-source code</a
-            >, by Ariel Lee</small
-          >
         </div>
+        <small>
+          <a
+            href="https://github.com/ariel-land/ariel-weather-app"
+            target="”_blank”"
+            >Open-source code</a
+          >, by Ariel Lee</small
+        >
       </div>
     </div>
     <script src="src/app.js"></script>

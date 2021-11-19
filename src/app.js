@@ -113,33 +113,33 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  // remove the active class from the celcius link, add it to the °F link
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
+// function displayFahrenheitTemperature(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#temperature");
+//   // remove the active class from the celcius link, add it to the °F link
+//   celciusLink.classList.remove("active");
+//   fahrenheitLink.classList.add("active");
+//   let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+//   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+// }
 
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  celciusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
+// function displayCelciusTemperature(event) {
+//   event.preventDefault();
+//   celciusLink.classList.add("active");
+//   fahrenheitLink.classList.remove("active");
+//   let temperatureElement = document.querySelector("#temperature");
+//   temperatureElement.innerHTML = Math.round(celciusTemperature);
+// }
 
-let celciusTemperature = null;
+// let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+// let fahrenheitLink = document.querySelector("#fahrenheit-link");
+// fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelciusTemperature);
+// let celciusLink = document.querySelector("#celcius-link");
+// celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("Tokyo");

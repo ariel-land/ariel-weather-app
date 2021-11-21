@@ -18,6 +18,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
+  //displayBackground(`${hours}`);
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -27,6 +28,15 @@ function formatDay(timestamp) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
+
+// function displayBackground(time) {
+//   let backgroundElement = document.querySelector(".weather-app");
+//   if (time > 6 && time < 18) {
+//     backgroundElement.style.background = "Yellow";
+//   } else {
+//     backgroundElement.style.background = "blue";
+//   }
+// }
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -68,7 +78,7 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
+  //console.log(coordinates);
   let apiKey = "1b8c2d52c29dd3447556ac28355ce164";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -91,7 +101,7 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  //dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -113,6 +123,11 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("Tokyo");
+
 // function displayFahrenheitTemperature(event) {
 //   event.preventDefault();
 //   let temperatureElement = document.querySelector("#temperature");
@@ -133,13 +148,8 @@ function handleSubmit(event) {
 
 // let celciusTemperature = null;
 
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
-
 // let fahrenheitLink = document.querySelector("#fahrenheit-link");
 // fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 // let celciusLink = document.querySelector("#celcius-link");
 // celciusLink.addEventListener("click", displayCelciusTemperature);
-
-search("Tokyo");
